@@ -1,3 +1,37 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/errors",
+    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "react/no-unescaped-entities": "off",
+    "react/no-unknown-property": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "import/no-named-as-default": "off",
+    "import/named": "off",
+    "import/default": "off",
+    "import/export": "off",
+    "import/no-unresolved": "off",
+    "import/namespace": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "groups": ["builtin", "external", "internal", "sibling", "parent", "index"],
+        "pathGroups": [
+          { "pattern": "react", "group": "external", "position": "before" },
+          { "pattern": "next", "group": "external", "position": "before" },
+          { "pattern": "@/**", "group": "internal" }
+        ],
+        "pathGroupsExcludedImportTypes": [".+"],
+        "newlines-between": "never"
+      }
+    ]
+  }
 }
