@@ -54,7 +54,6 @@ const LabelPopover = ({ trigger }: { trigger: string }) => {
                 .map((label) => (
                   <Link
                     href="#"
-                    onClick={() => handleLabelClick()}
                     key={label?.id}
                     className="w-full flex items-center gap-2 py-2 px-6 border-t-[1px] border-t-porcelain-200 hover:bg-porcelain-100 relative"
                   >
