@@ -1,14 +1,31 @@
-"use client";
-import { FC } from "react";
-import { twMerge } from "tailwind-merge";
-import type { RootBodyProps } from "./root-body.type";
+import React, { FC, PropsWithChildren } from "react";
+import {
+  QueryClient,
+  QueryClientProvider,
+  HydrationBoundary,
+} from "@tanstack/react-query";
+import { cn } from "@/lib/utils";
 
-const RootBody: FC<RootBodyProps> = (props) => {
-  const { children } = props;
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+      staleTime: 1000 * 60 * 60 * 1,
+    },
+  },
+});
 
-  const style = twMerge("h-screen w-screen overflow-hidden");
+const RootBody: FC<PropsWithChildren<{}>> = ({ children }) => {
+  const style = cn("h-screen w-screen overflow-hidden");
 
-  return <body className={style}>{children}</body>;
+  return (
+    <body className={style}>
+      <QueryClientProvider client={queryClient}>
+        <HydrationBoundary>{children}</HydrationBoundary>
+      </QueryClientProvider>
+    </body>
+  );
 };
 
 export default RootBody;
