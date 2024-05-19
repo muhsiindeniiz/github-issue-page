@@ -1,4 +1,3 @@
-"use client";
 import React, { FC } from "react";
 import type { RootHtmlProps } from "./root-html.type";
 

@@ -11,7 +11,10 @@ const nextConfig = {
     styledComponents: { ssr: false },
   },
   images: {
-    remotePatterns: [{ hostname: "github.com" }],
+    remotePatterns: [
+      { hostname: "github.com" },
+      { hostname: "avatars.githubusercontent.com" },
+    ],
   },
   experimental: {
     webpackBuildWorker: true,

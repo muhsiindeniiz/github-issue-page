@@ -1,6 +1,7 @@
+import React from "react";
 import type { Metadata } from "next";
 import "@/package/assets/style/global.scss";
-import { RootHtml, RootBody } from "@/package/provider";
+import { RootBody, RootHtml } from "@/package/provider";
 
 export const metadata: Metadata = {
   title: "Github Issue Page",
